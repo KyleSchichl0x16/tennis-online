@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tennis Game – Online 2 Players</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main id="stage" class="stage">
+    <canvas id="cv" width="600" height="600"></canvas>
+
+    <section id="scr-loading" class="screen">
+      <p class="loading">LOADING <span id="load-pct">0%</span></p>
+    </section>
+
+    <section id="scr-title" class="screen" hidden>
+      <h1>TENNIS GAME</h1>
+      <p class="tagline">ONLINE &middot; 2 PLAYERS</p>
+      <div class="help">
+        <p>Key Operation:</p>
+        <p>Space key to hit the ball.</p>
+        <p>Arrow keys to move, or to aim the ball direction at the moment of stroke.</p>
+        <p>Getting 3 games first to win.</p>
+      </div>
+      <nav class="menu">
+        <button type="button" id="btn-create">CREATE MATCH</button>
+        <button type="button" id="btn-join">JOIN MATCH</button>
+        <button type="button" id="btn-local">SAME KEYBOARD</button>
+      </nav>
+      <form id="join-form" class="join" hidden>
+        <label for="join-code">Match code</label>
+        <input id="join-code" type="text" maxlength="8" autocomplete="off" autocapitalize="characters" spellcheck="false">
+        <button type="submit">JOIN</button>
+        <button type="button" id="btn-join-cancel">BACK</button>
+      </form>
+      <p id="title-notice" class="notice" role="status"></p>
+      <a class="credit" href="http://www.gamedesign.jp/" target="_blank" rel="noopener" title="The original game is by GAMEDESIGN">GAMEDESIGN</a>
+    </section>
+
+    <section id="scr-lobby" class="screen" hidden>
+      <div class="panel">
+        <div class="side" id="side-top"></div>
+        <div class="side" id="side-bottom"></div>
+        <div class="invite" id="invite">
+          <label for="invite-url">Send this link to your friend:</label>
+          <div class="invite-row">
+            <input id="invite-url" type="text" readonly>
+            <button type="button" id="btn-copy">COPY</button>
+          </div>
+        </div>
+        <p id="lobby-status" class="status" role="status"></p>
+      </div>
+      <div class="lobby-actions">
+        <button type="button" id="btn-leave" class="plain">&#9664;&#xFE0E; Back to Title</button>
+        <button type="button" id="btn-start" class="spacebar">START &nbsp;(Space bar)</button>
+      </div>
+    </section>
+
+    <section id="scr-play" class="screen" hidden>
+      <span id="ping" class="ping"></span>
+      <button type="button" id="btn-quit" class="corner" title="Leave the match" aria-label="Leave the match">&#9664;&#xFE0E;</button>
+    </section>
+
+    <button type="button" id="btn-sound" class="sound" title="Sound on/off" aria-label="Sound on/off">&#9834;&#xFE0E;</button>
+    <p id="toast" class="toast" role="status" hidden></p>
+  </main>
+
+  <script src="vendor/peerjs.min.js"></script>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
